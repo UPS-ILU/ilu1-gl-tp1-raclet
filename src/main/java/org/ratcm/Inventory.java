@@ -156,7 +156,7 @@ public class Inventory {
 	public boolean addSugar(String sugar) {
 		int amtSugar = 0;
 		amtSugar = Integer.parseInt(sugar);
-		if (amtSugar <= 0) {
+		if (amtSugar >= 0) {
 			this.sugar += amtSugar;
 			return true;
 		} else {
