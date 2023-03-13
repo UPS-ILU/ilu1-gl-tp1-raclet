@@ -88,6 +88,45 @@ public class CoffeeMakerScenarios {
 		System.out.println("testMakingManyCoffeesEmptiesStock passed with success");
 	}
 
+	private void testcheckInventoryBeforeUse() {
+		String inventoryStatus = cm.checkInventory();
+		assertInventory(inventoryStatus,15,15,15,15);
+		System.out.println("testcheckInventoryBeforeUse passed with success");
+	}
+
+	private void testMakingManyCoffeesAfterRefillIsStillPossible() {
+		cm.addRecipe(r1);
+		assertEquals(0, cm.makeCoffee(0, 50));
+		assertEquals(0, cm.makeCoffee(0, 50));
+		assertEquals(0, cm.makeCoffee(0, 50));
+		assertEquals(0, cm.makeCoffee(0, 50));
+		assertEquals(0, cm.makeCoffee(0, 50));
+		assertEquals(50, cm.makeCoffee(0, 50));
+		assert(true == cm.addInventory("15", "5", "5", "0"));
+		assertEquals(0, cm.makeCoffee(0, 50));
+		assertEquals(0, cm.makeCoffee(0, 50));
+		assertEquals(0, cm.makeCoffee(0, 50));
+		assertEquals(0, cm.makeCoffee(0, 50));
+		assertEquals(0, cm.makeCoffee(0, 50));
+		assertEquals(50, cm.makeCoffee(0, 50));
+		System.out.println("testMakingManyCoffeesAfterRefillIsStillPossible passed with success");
+	}
+
+	private void testCheckInventoryAfterThreeCoffees() {
+		cm.addRecipe(r1);
+		assertEquals(0, cm.makeCoffee(0, 50));
+		assertEquals(0, cm.makeCoffee(0, 50));
+		assertEquals(0, cm.makeCoffee(0, 50));
+		String inventoryStatus = cm.checkInventory();
+		assertInventory(inventoryStatus,6,12,12,15);
+		System.out.println("testCheckInventoryAfterThreeCoffees passed with success");
+	}
+
+	private void assertInventory(String inventoryStatus, int coffeeQty, int milkQty, int sugarQty, int chocQty) {
+		assert(inventoryStatus.equals("Coffee: "+coffeeQty+"\nMilk: "
+				+milkQty+"\nSugar: "+sugarQty+"\nChocolate: "+chocQty+"\n"));
+	}
+
 	private void assertEquals(int expectedValue, int testedValue) {
 		assert (expectedValue == testedValue);
 	}
@@ -96,10 +135,13 @@ public class CoffeeMakerScenarios {
 		CoffeeMakerScenarios testScenario = new CoffeeMakerScenarios();
 		
 		// Run once at a time (in order to isolate pb)
-		testScenario.testMakeCoffee();
+//		testScenario.testMakeCoffee();
 //		testScenario.testMakeCoffeeWithoutEnoughMoney();
 //		testScenario.testMakeMochaWithNoSufficientChocolate();
 //		testScenario.testMakingManyCoffeesEmptiesStock();
+//		testScenario.testcheckInventoryBeforeUse();
+//		testScenario.testMakingManyCoffeesAfterRefillIsStillPossible();
+		testScenario.testCheckInventoryAfterThreeCoffees();
 	}
 
 }
