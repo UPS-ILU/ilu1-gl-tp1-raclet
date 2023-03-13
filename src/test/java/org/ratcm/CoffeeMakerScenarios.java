@@ -138,10 +138,10 @@ public class CoffeeMakerScenarios {
 //		testScenario.testMakeCoffee();
 //		testScenario.testMakeCoffeeWithoutEnoughMoney();
 //		testScenario.testMakeMochaWithNoSufficientChocolate();
-//		testScenario.testMakingManyCoffeesEmptiesStock();
+		testScenario.testMakingManyCoffeesEmptiesStock();
 //		testScenario.testcheckInventoryBeforeUse();
 //		testScenario.testMakingManyCoffeesAfterRefillIsStillPossible();
-		testScenario.testCheckInventoryAfterThreeCoffees();
+//		testScenario.testCheckInventoryAfterThreeCoffees();
 	}
 
 }
