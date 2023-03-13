@@ -102,7 +102,7 @@ public class CoffeeMakerScenarios {
 		assertEquals(0, cm.makeCoffee(0, 50));
 		assertEquals(0, cm.makeCoffee(0, 50));
 		assertEquals(50, cm.makeCoffee(0, 50));
-		assert(true == cm.addInventory("15", "5", "5", "0"));
+		assert(true == cm.addInventory(15, 5, 5, 0));
 		assertEquals(0, cm.makeCoffee(0, 50));
 		assertEquals(0, cm.makeCoffee(0, 50));
 		assertEquals(0, cm.makeCoffee(0, 50));
@@ -138,10 +138,10 @@ public class CoffeeMakerScenarios {
 //		testScenario.testMakeCoffee();
 //		testScenario.testMakeCoffeeWithoutEnoughMoney();
 //		testScenario.testMakeMochaWithNoSufficientChocolate();
-		testScenario.testMakingManyCoffeesEmptiesStock();
+//		testScenario.testMakingManyCoffeesEmptiesStock();
 //		testScenario.testcheckInventoryBeforeUse();
 //		testScenario.testMakingManyCoffeesAfterRefillIsStillPossible();
-//		testScenario.testCheckInventoryAfterThreeCoffees();
+		testScenario.testCheckInventoryAfterThreeCoffees();
 	}
 
 }

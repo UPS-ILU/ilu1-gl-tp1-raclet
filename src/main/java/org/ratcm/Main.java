@@ -174,19 +174,23 @@ public class Main {
 	 * Add inventory user interface that processes input.
 	 */
 	public static void addInventory() {
-		//Read in amt coffee
+		// Read in amt coffee
 		String coffeeString = inputOutput("\nPlease enter the units of coffee to add: ");
+		int coffeeQty = parseQuantity(coffeeString);
 
-		//Read in amt milk
+		// Read in amt milk
 		String milkString = inputOutput("\nPlease enter the units of milk to add: ");
+		int milkQty = parseQuantity(milkString);
 
-		//Read in amt sugar
+		// Read in amt sugar
 		String sugarString = inputOutput("\nPlease enter the units of sugar to add: ");
+		int sugarQty = parseQuantity(sugarString);
 
-		//Read in amt chocolate
+		// Read in amt chocolate
 		String chocolateString = inputOutput("\nPlease enter the units of chocolate to add: ");
+		int chocolateQty = parseQuantity(chocolateString);
 
-		if (coffeeMaker.addInventory(coffeeString, milkString, sugarString, chocolateString)) {
+		if (coffeeMaker.addInventory(coffeeQty, milkQty, sugarQty, chocolateQty)) {
 			System.out.println("Inventory successfully added");
 		} else {
 			System.out.println("Inventory was not added");
@@ -276,6 +280,21 @@ public class Main {
 			recipe = -1;
 		}
 		return recipe;
+	}
+
+	private static int parseQuantity(String qtyString) {
+		int quantity = 0;
+		try {
+			quantity = Integer.parseInt(qtyString);
+		} catch (NumberFormatException e) {
+			return 0;
+		}
+		if (quantity >= 0) {
+			return quantity;
+		} else {
+			return 0;
+		}
+
 	}
 
 	/**

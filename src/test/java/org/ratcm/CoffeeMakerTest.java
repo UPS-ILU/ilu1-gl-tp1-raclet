@@ -61,7 +61,7 @@ public class CoffeeMakerTest {
 	@Test
 	public void testAddInventory() throws InventoryException {
 		assertThrows(InventoryException.class,
-				() -> { cm.addInventory("4", "-1", "asdf", "3"); });
+				() -> { cm.addInventory(4, -1, 0, 3); });
 	}
 	
 	@Test

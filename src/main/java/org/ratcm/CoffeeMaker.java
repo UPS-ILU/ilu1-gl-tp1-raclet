@@ -52,14 +52,18 @@ public class CoffeeMaker {
 	/**
 	 * Returns true if inventory was successfully added
 	 *
-	 * @param amtCoffee
-	 * @param amtMilk
-	 * @param amtSugar
-	 * @param amtChocolate
-	 * @return true if all amounts are correctly updated with a positive or null value; false otherwise
+	 * @param coffeeQty
+	 * @param milkQty
+	 * @param sugarQty
+	 * @param chocolateQty
+	 * @return true when all amounts have been updated with a positive or null value
 	 */
-	public boolean addInventory(String amtCoffee, String amtMilk, String amtSugar, String amtChocolate) {
-		return inventory.addCoffee(amtCoffee) && inventory.addMilk(amtMilk) && inventory.addSugar(amtSugar) && inventory.addChocolate(amtChocolate);
+	public boolean addInventory(int coffeeQty, int milkQty, int sugarQty, int chocolateQty) {
+		inventory.setCoffee(coffeeQty);
+		inventory.setMilk(milkQty);
+		inventory.setSugar(sugarQty);
+		inventory.setChocolate(chocolateQty);
+		return true;
 	}
 
 	/**
