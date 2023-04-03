@@ -23,6 +23,7 @@ public class GWT_Scenarios {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		cm.addRecipe(r1);
 	}
 
 	private void whenACoffeeIsOrderedWith75Cts() {
